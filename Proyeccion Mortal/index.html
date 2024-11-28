@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyección Mortal</title>
+    <link rel="icon" href="./img/logo.png">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- Basic libraries -->
+    <script src="./src/libs/three.js"></script>
+    <script src="./src/libs/three.js-master/build/three.min.js"></script>
+    <script src="./src/libs/three.js-master/build/three.js"></script>
+
+    <!-- Llamar a todas las librerias de GUI-->
+    <script src="./src/libs/DAT.GUI.min.js"></script>
+
+    <script src="./src/libs/Stats.js"></script>
+
+    <!-- Load files from LOAD -->
+    <script src="./src/libs/load/DRACOLoader.js"></script>
+    <script src="./src/libs/load/GLTFLoader.js"></script>
+    <script src="./src/libs/load/MTLLoader.js"></script>
+    <script src="./src/libs/load/OBJLoader.js"></script>
+
+    <!-- Load Collider Content -->
+    <script src="./src/libs/collider/better.js"></script>
+    <script src="./src/libs/collider/threex.collider.js"></script>
+    <script src="./src/libs/collider/threex.colliderhelper.js"></script>
+    <script src="./src/libs/collider/threex.collidersystem.js"></script>
+
+    <!-- Load Movement Code and Sound Library-->
+    <script src="./src/libs/mov/FPSControls.js"></script>
+    <script src="./src/libs/mov/PointerLockControls.js"></script>
+    <script src="./src/libs/Sound.js"></script>
+
+    <script src="./src/libs/OrbitControls.js"></script>
+    <script src="./src/js/main.js"></script>
+
+
+</head>
+
+<body>
+
+    <canvas id="app"></canvas>
+    <div id="blocker">
+        <div id="instructions">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button class="button" onclick="go2Play(1)">Jugar sin colisiones</button>
+            <br />
+            <br>
+            <button class="button" onclick="go2Play(2)">Jugar con colisiones</button>
+            <!-- <span onclick="go2Play()" style="font-size:36px">Click to play</span> -->
+            <br /><br />
+            Move: WASD<br />
+            Look: MOUSE<br />
+            Shoot: CLICK
+        </div>
+    </div>
+
+    <div id="ScreenOver" style="display: none;">
+        <div id="resultados">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <span>Tiempo final: </span>
+            <span class="timertext" id="minutesF"></span>
+            <span class="timertext" id="breakF">:</span>
+            <span class="timertext" id="secondsF"></span>
+            <br>
+            <br>
+            <br>
+            <button class="button" onclick="backHome()">Inicio</button>
+        </div>
+    </div>
+
+
+    <div id="cointainerOthers" style="display: none;">
+        <div id="timer">
+            <span class="timertext">Timer -</span>
+            <span class="timertext" id="minutes"></span>
+            <span class="timertext" id="break">:</span>
+            <span class="timertext" id="seconds"></span>
+        </div>
+        <div style="position: absolute;margin-top: 10px;background-color: rgb(159, 4, 123, 0.5); z-index:5;">
+            <span class="timertext">Pops: </span>
+            <span class="timertext" id="Score"></span>
+            <br>
+            <span class="timertext">Left: </span>
+            <span class="timertext" id="CountZ"></span>
+        </div>
+        <style>
+            img {
+                display: block;
+                margin-left: auto;
+            }
+        </style>
+    </div>
+
+    <audio id="Tittle">
+        <source src="songs/Persona Black Market.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="shootSound" src="songs/ShotSound.mp3"></audio>
+    <audio id="zombieGrunt" src="songs/zombie-sound-001.mp3"></audio>
+    <audio id="Results" src="songs/Persona Batsu Results.mp3"></audio>
+    <script>
+        var t = document.getElementById("Tittle");
+        var ovR = document.getElementById("Results");
+        function playAudio(k) {
+            k.volume = 0.5;
+            k.play();
+        }
+        function pauseAudio(k) {
+            k.pause();
+        }
+
+    </script>
+
+</body>
+
+</html>
